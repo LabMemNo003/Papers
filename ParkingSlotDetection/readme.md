@@ -21,11 +21,25 @@
   - 输入图像 --> Harris角点检测 --> 绕角点一周进行采样 --> 利用不同角度的模板对采样数据滤波 --> 对角点进行分类并计算方向 --> 遍历每一对角点生成可能的连接点 --> 遍历每一对连接点生成可能的停车位 --> 过滤重叠的停车位
 + **Automatic Parking Based on a Bird's Eye View Vision System**  
   2014 - [Chunxiang Wang] [Hengrun Zhang] [Ming Yang] [Xudong Wang] [Lei Ye] [Chunzhao Guo]
+  - **直接在边缘提取的特征图上做Radon变换**
   - 四路鱼眼镜头 --> 去畸变 --> 鸟瞰图拼接 --> Canny边缘检测 --> Radon变换 --> 寻找高置信度的垂线 --> 提取潜在停车线 --> 聚类及过滤得到停车位 --> 检测空停车位 --> 路径规划及寻迹
++ **Line Filter-Based Parking Slot Detection for Intelligent Parking Assistance System**  
+  2014 - [Mengyang Fan] [Zhengcheng Hu] [Kazukuni Hamada] [Hui Chen]
+  - **使用形如[-1,-1,...,-1,-1,0,1,1,...,1,1]的卷积核, 对灰度图像进行竖直及水平方向的卷积, 从而提取直线**
+  - 输入图像 --> 灰度图像 --> 用提出的卷积核进行边缘线检测 --> Hough变换及几何约束提取候选停车线 --> 基于几何约束检测停车位
++ **Surround View based Parking Lot Detection and Tracking**  
+  2015 - [Kazukuni Hamada] [Zhencheng Hu] [Mengyang Fan] [Hui Chen]
+  - 边缘检测 --> Hough变换提取候选线 --> 停车位检测 --> 跟踪?
 + **Directional-DBSCAN: Parking-slot Detection using a Clustering Method in Around-View Monitoring System**  
   2016 - [Soomok Lee] [Daejin Hyeon] [Gikwang Park] [Il-joo Baek] [Seong-Woo Kim] [Seung-Woo Seo]
   - **在DBSCAN中加入方向信息, 从而对提取的停车线特征进行聚类, 得到连续线段**
   - 输入全景图像 --> 使用滤波的方法提取线特征 --> 使用D-DBSCAN聚类得到线段簇 ( --> 使用linear-RANSAC判断方向一致性 ) --> 使用Sequential-RANSAC得到线段簇的方程 --> 将线段分组为不同的停车线集合 --> 判断每个停车线集合的停车位类别 --> 检测最终的停车位
++ **Available Parking Slot Recognition based on Slot Context Analysis**  
+  2016 - [Soomok Lee] [Seung-Woo Seo]
+  - **基于能量的聚类的过程, 其实跟Hough变换一样, 只是在参数空间沿rho方向算了一遍熵**
+  - **使用Bayesian Network (BN)来判断线段组合成的潜在停车位是否合理**
+  - Bayesian Network (BN) framework; Histogram of Gradient (HOG); frequency magnitude feature; Support Vector Machine (SVM)
+  - 四路图像 --> 鸟瞰图 --> 停车线检测(Cone-hat Marking Extraction Filter --> Entropy-based Line-marking Clustering --> line-segment detection) --> 生成候选停车位 --> 停车位合法验证(BN model) --> 停车位是否为空(HOG, FFT, SVM)
 + **Vision-based Parking-slot detection: A Benchmark And A Learning-based Approach**  
   2017 - [Linshen Li] [Lin Zhang] [Xiyuan Li] [Xiao Liu] [Ying Shen] [Lu Xiong]
   -
@@ -46,3 +60,7 @@
   - 输入图像 --> 边缘特征提取 --> 边缘特征二值化 --> skeleton形态学处理 --> 获取潜在端点 --> 保留靠近车辆的端点 --> 计算端点处的停车线方向
   - --> 将靠近交点的端点过滤 --> 根据特征点的距离及角度判断停车位
   - AVM image size: 480x300; Left/right image size: 330x110; 3.75cm/pixel
++ **Geometric Features-Based Parking Slot Detection**  
+  2018 - [Qian Li] [Chunyu Lin] [Yao Zhao]
+  - 基于LSD的聚类算法, 检测固定间距的平行线; 使用机器学习的方法对交点进行分类, 从而确定停车线入口
+  - AVM image --> ROI --> Gray image --> Morphological filter --> Edge image(Canny) --> LSD based line-clustering --> Parallel lines detection --> Parking slot generation --> Entrance Detection
