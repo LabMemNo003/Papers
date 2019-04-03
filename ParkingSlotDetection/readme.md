@@ -42,18 +42,23 @@
   - 四路图像 --> 鸟瞰图 --> 停车线检测(Cone-hat Marking Extraction Filter --> Entropy-based Line-marking Clustering --> line-segment detection) --> 生成候选停车位 --> 停车位合法验证(BN model) --> 停车位是否为空(HOG, FFT, SVM)
 + **Vision-based Parking-slot detection: A Benchmark And A Learning-based Approach**  
   2017 - [Linshen Li] [Lin Zhang] [Xiyuan Li] [Xiao Liu] [Ying Shen] [Lu Xiong]
-  -
+  - http://sse.tongji.edu.cn/linzhang/ps/index.htm
+  - PSDL: Parking-Slot Detection based on Learning
+  - **角点检测: 特征提取(normalized intensity,gradient magnitude,oriented gradient histograms) --> AdaBoost分类器**
+  - 基于一些几何约束的停车位检测
 + **Vision-Based Parking-Slot Detection: A DCNN-Based Approach and a Large-Scale Benchmark Dataset**  
   2018 - [Lin Zhang] [Junhao Huang] [Xiyuan Li] [Lu Xiong]
-  -
+  - https://cslinzhang.github.io/deepps/
+  - DeepPS: a DCNN-based parking-slot detection approach
+  - **使用YoloV2检测角点 --> 使用DCNN确定停车位类型 --> 推测停车位**
 + **Semantic Segmentation-based Parking Space Detection With Standalone Around View Monitoring System**  
   2018 - [Chulhoon Jang] [Myoungho Sunwoo]
-  -
+  - 语义分割 --> 基于垂直网格的车位线检测
 + **Probabilistic Occupancy Filter for Parking Slot Marker Detection in an Autonomous Parking System Using AVM**  
   2018 - [MinChul Lee] [Seokwon Kim] [Wonteak Lim] [Myoungho Sunwoo]
   - **使用概率模型并结合连续多帧之间的联系, 减少停车位检测中由于3D物体及阴影造成的假正例**
   - Bayesian filtering scheme
-+ **Vision-based Approach in Finding Multitype Parking Stall Entrance**
++ **Vision-based Approach in Finding Multitype Parking Stall Entrance**  
   2018 - [Changmu Seo] [Joongsik Kim] [Yunhee Lee] [Whoi-Yul Kim]
   - **利用Radon变换获取候选线, 并将其交点或端点候选的停车位特征点**
   - 输入图像 --> 边缘特征提取 --> Radon变换提取候选线 --> 计算候选线间的交点坐标 --> 在交点附近做Radon变换 --> 重新计算更精确交点坐标 --> 计算交点处的停车线方向
